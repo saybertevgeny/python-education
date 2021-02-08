@@ -53,8 +53,70 @@ print(yummy * 2)  # Yum Yum
 print(yummy.upper())  # YUM
 print(yummy.lower())  # yum в этих двух методах создаются !новые! строки
 
-
 long_string = 'This is long string'
-print(long_string.split())   # ['This', 'is', 'long', 'string'] по умолчанию разделитель пробел
+print(long_string.split())  # ['This', 'is', 'long', 'string'] по умолчанию разделитель пробел
 print(long_string.split('s'))  # ['Thi', ' i', ' long ', 'tring']
 
+# Форматирование строк
+age = 23
+# print("Jack is" + age + "years old")  # Ошибка, можно конкатенировать только строки со строками
+print("Jack is " + str(age) + " years old")  # Jack is 23 years old
+print("Jack is " + str(23) + " years old")  # Jack is 23 years old
+
+name = 'Jack'
+age = 23
+name_and_age = 'My name is {0}. I\'m {1} years old'.format(name, age)  # My name is Jack. I'm 23 years old
+print(name_and_age)
+
+name_and_age = 'My name is {}. I\'m {} years old'.format(name, age)
+print(name_and_age)  # My name is Jack. I'm 23 years old
+
+week_days = 'There are 7 days in a week: {}, {}, {}, {}, {}, {}, {}.'.format("Monday", "Tuesday", "Wednesday",
+                                                                             "Thursday", "Friday", "Saturday", "Sunday")
+print(week_days)  # There are 7 days in a week: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+
+week_days = 'There are 7 days in a week: {6}, {0}, {1}, {2}, {3}, {4}, {5}.'.format("Monday", "Tuesday", "Wednesday",
+                                                                                    "Thursday", "Friday", "Saturday",
+                                                                                    "Sunday")
+print(week_days)  # There are 7 days in a week: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.
+
+week_days = 'There are 7 days in a week: {su}, {mo}, {tu}, {we}, {th}, {fr}, {sa}.'.format(mo="Monday",
+                                                                                           tu="Tuesday",
+                                                                                           we="Wednesday",
+                                                                                           th="Thursday",
+                                                                                           fr="Friday",
+                                                                                           sa="Saturday",
+                                                                                           su="Sunday")
+print(week_days)  # There are 7 days in a week: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.
+
+float_result = 1000 / 7
+print(float_result)  # 142.85714285714286
+print("The result of division is {0}".format(float_result))  # The result of division is 142.85714285714286
+print("The result of division is {0:1.3f}".format(
+    float_result))  # The result of division is 142.857, где 1 количество символов для обрезки
+print("The result of division is {0:10.3f}".format(
+    float_result))  # The result of division is    142.857, как видно появился пробел
+
+print('''
+    {0} {1} {2}  
+    {3} {4} {5}
+    {6} {7} {8}
+'''.format(1.45778, 345.231231, 31.1231,  # 1.45778 345.231231 31.1231
+           11.121, 1212.1, 5621.1,  # 11.121 1212.1 5621.1
+           1.45, 11.2132131, 3))  # 1.45 11.2132131 3
+
+print('''
+    {0:10.2f} {1:10.2f} {2:10.2f}  
+    {3:10.2f} {4:10.2f} {5:10.2f}
+    {6:10.2f} {7:10.2f} {8:10.2f}
+'''.format(1.45778, 345.231231, 31.1231,  # 1.46     345.23      31.12
+           11.121, 1212.1, 5621.1,  # 11.12    1212.10    5621.10   т.е. для формитирования
+           1.45, 11.2132131, 3))  # 1.45      11.21       3.00
+
+name = 'Jack'
+age = 23
+name_and_age = f'My name is {name}. I\'m {age} years old'
+print(name_and_age)  # My name is Jack. I'm 23 years old т.е. сразу можно указывать переменные
+
+print('My name is %s. I\'m %d years old' % (name, age))  # My name is Jack. I'm 23 years old
+print('My name is %s. %s %d years old' % (name, "I'm", age))  # My name is Jack. I'm 23 years old !DEPRECATED!
