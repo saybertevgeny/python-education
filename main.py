@@ -35,3 +35,8 @@ test = range(5)  # range(0, 5)
 print(test)
 for _ in range(5): # просто хороший тон, когда переменная не важна
     print('Hello')
+
+
+smile = '\U0001f600'
+for number in range(1, 11):
+    print(smile * number)
